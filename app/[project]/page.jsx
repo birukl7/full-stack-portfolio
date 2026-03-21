@@ -1,9 +1,7 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-
 import { projectPages } from '@/data';
-
 import { Contact, Navbar, ProjectPage, Transition } from '@/layout';
 
 
