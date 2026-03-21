@@ -2,6 +2,7 @@
 import { projectDetails } from "./project-details";
 import { thumbnailOptions } from "./thumbnail-options";
 
+
 export const projectPages = thumbnailOptions.reduce(
   (acc, { href, title, image }) => {
     const slug = href.replace(/^\//, "");
