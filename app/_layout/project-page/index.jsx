@@ -8,7 +8,7 @@ import { randomId } from '@/utils';
 /**
  * @param {Object} props
  * @param {string} props.title
- * @param {string} props.description
+ * @param {string[]} props.description
  * @param {{ type: 'image' | 'video'; source: string }[]} props.media
  */
 export function ProjectPage({ title, description, media }) {
@@ -53,10 +53,19 @@ export function ProjectPage({ title, description, media }) {
 
         <div className='max-w-3xl space-y-4'>
           <h1 className='text-4xl font-semibold'>{title}</h1>
-          <p className='text-lg  pt-10 pb-10 text-muted-foreground'>{description}</p>
+          <ul className='pt-10 pb-10 space-y-3'>
+            {description.map((point, index) => (
+              <li 
+                key={index} 
+                className='flex items-start gap-3 text-lg text-muted-foreground'
+              >
+                <span className='mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground' />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
   );
 }
-

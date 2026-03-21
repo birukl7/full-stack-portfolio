@@ -1,5 +1,4 @@
 import { thumbnailOptions } from "./thumbnail-options";
-
 import { projectDetails } from "./project-details";
 
 export const projectPages = thumbnailOptions.reduce(
@@ -11,7 +10,7 @@ export const projectPages = thumbnailOptions.reduce(
     acc[slug] = {
       slug,
       title,
-      description: details.description || "Project description coming soon.",
+      description: details.description || ["Project description coming soon."],
       media: details.media || [
         {
           type: "image",
