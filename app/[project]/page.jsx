@@ -1,8 +1,11 @@
 'use client';
 
-import { Contact, Navbar, ProjectPage, Transition } from '@/layout';
 import { projectPages } from '@/data';
+
 import { useRouter } from "next/navigation";
+
+import { Contact, Navbar, ProjectPage, Transition } from '@/layout';
+
 
 /**
  * @param {{ params: { project: string } }} context
