@@ -39,7 +39,11 @@ export function Description() {
         >
           <div className='absolute right-0 top-3/4 lg:top-full lg:me-10'>
            
-            <a href='https://docs.google.com/document/d/e/2PACX-1vTnl3liOsjItG7a-5_nNWmkl93ZA0XeqpyAovrSshZAqIATPo-es2c7I3_ZD8iW6w/pub' target='_blank'>
+            <a
+              href='/BIRUK_LEMMA_DEBELA.pdf'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
               <MagneticButton  variant='ghost' size='xl'>
                
                   Resume
