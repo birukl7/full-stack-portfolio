@@ -4,6 +4,7 @@ export * from './header';
 export * from './navbar';
 export * from './offcanvas';
 export * from './project';
+export * from './project-dialog';
 export * from './project-page';
 export * from './thumbnail';
 export * from './transition';

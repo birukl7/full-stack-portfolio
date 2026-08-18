@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 import { thumbnailOptions } from '@/data';
 
 /**
@@ -9,14 +7,17 @@ import { thumbnailOptions } from '@/data';
  * @param {(index: number) => void} props.handlePointerEnter
  * @param {(index: number) => void} props.handlePointerLeave
  * @param {(x: number, y: number) => void} props.moveItems
+ * @param {(slug: string) => void} props.onProjectClick
  */
 export function ThumbnailList({
   handlePointerEnter,
   handlePointerLeave,
   moveItems,
+  onProjectClick,
 }) {
   const items = thumbnailOptions.map(({ href, title, type }, index) => {
     const id = index;
+    const slug = href.replace(/^\//, '');
     return (
       <li
         key={`thumbnail-list-${id}`}
@@ -34,10 +35,9 @@ export function ThumbnailList({
           moveItems(clientX, clientY);
         }}
       >
-        <Link
-          href={href}
-          className='flex items-center justify-between max-lg:flex-wrap'
-          passHref
+        <button
+          onClick={() => onProjectClick(slug)}
+          className='flex w-full items-center justify-between text-left max-lg:flex-wrap'
         >
           <h4
             style={{
@@ -47,7 +47,7 @@ export function ThumbnailList({
             {title}
           </h4>
           <p className='text-lg font-medium'>{type}</p>
-        </Link>
+        </button>
       </li>
     );
   });

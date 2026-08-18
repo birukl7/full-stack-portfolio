@@ -51,19 +51,15 @@ export function ProjectPage({ title, description, media }) {
       <div className='flex flex-col gap-10'>
         <div className='grid gap-6 md:grid-cols-2'>{mediaItems}</div>
 
-        <div className='max-w-3xl space-y-4'>
-          <h1 className='text-4xl font-semibold'>{title}</h1>
-          <ul className='pt-10 pb-10 space-y-3'>
-            {description.map((point, index) => (
-              <li 
-                key={index} 
-                className='flex items-start gap-3 text-lg text-muted-foreground'
-              >
-                <span className='mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-foreground' />
-                <span>{point}</span>
-              </li>
+        <div className='max-w-3xl space-y-6'>
+          <h1 className='text-4xl font-semibold leading-tight tracking-tight md:text-5xl'>
+            {title}
+          </h1>
+          <div className='space-y-4 pb-10 pt-4 text-base leading-relaxed text-muted-foreground md:text-lg md:leading-8'>
+            {description.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </section>
