@@ -1,4 +1,4 @@
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
 import { rootMetadata } from '@/config';
 import { neue_montreal } from '@/fonts';
@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en' dir='ltr' className={neue_montreal.variable}>
       <GoogleTagManager gtmId='GTM-KPC28N3H' />
+      <GoogleAnalytics gaId='G-V4YN3PBQ67' />
       <body className={neue_montreal.className}>
         <noscript>
           <iframe
