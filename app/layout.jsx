@@ -1,3 +1,4 @@
+import { GoogleTagManager } from '@next/third-parties/google';
 import { rootMetadata } from '@/config';
 import { neue_montreal } from '@/fonts';
 import { Offcanvas } from '@/layout';
@@ -11,7 +12,16 @@ export const metadata = rootMetadata;
 export default function RootLayout({ children }) {
   return (
     <html lang='en' dir='ltr' className={neue_montreal.variable}>
+      <GoogleTagManager gtmId='GTM-KPC28N3H' />
       <body className={neue_montreal.className}>
+        <noscript>
+          <iframe
+            src='https://www.googletagmanager.com/ns.html?id=GTM-KPC28N3H'
+            height='0'
+            width='0'
+            style={{ display: 'none', visibility: 'hidden' }}
+          ></iframe>
+        </noscript>
         <Providers>
           <Offcanvas />
           {children}
