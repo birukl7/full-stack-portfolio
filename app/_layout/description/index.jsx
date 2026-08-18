@@ -37,19 +37,16 @@ export function Description() {
             duration: 0.5,
           }}
         >
-          <div className='absolute right-0 top-3/4 lg:top-full lg:me-10'>
-           
+          <div className='max-lg:relative max-lg:right-auto max-lg:top-auto max-lg:mt-4 max-lg:flex max-lg:justify-end lg:absolute lg:right-0 lg:top-full lg:me-10'>
             <a
-              href='/BIRUK_LEMMA_DEBELA.pdf'
+              href='/BIRUK_LEMMA_FULL_STACK.pdf'
               target='_blank'
               rel='noopener noreferrer'
             >
-              <MagneticButton  variant='ghost' size='xl'>
-               
-                  Resume
-                </MagneticButton>
-              </a>
-           
+              <MagneticButton variant='ghost' size='xl'>
+                Resume
+              </MagneticButton>
+            </a>
           </div>
         </motion.div>
       </Wrapper>

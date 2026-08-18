@@ -44,3 +44,23 @@
     }
   }
 }
+
+@keyframes morph {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  25% {
+    border-radius: 40% 60% 70% 30% / 50% 60% 30% 60%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 30% 70% 60%;
+  }
+  75% {
+    border-radius: 60% 40% 50% 50% / 40% 70% 30% 60%;
+  }
+}
+
+.animate-amoeba {
+  animation: morph 8s ease-in-out infinite;
+}
+
