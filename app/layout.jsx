@@ -1,4 +1,5 @@
 import { GoogleTagManager } from '@next/third-parties/google';
+
 import { rootMetadata } from '@/config';
 import { neue_montreal } from '@/fonts';
 import { Offcanvas } from '@/layout';
