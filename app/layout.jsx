@@ -1,5 +1,6 @@
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
+import { Chatbot } from '@/components';
 import { rootMetadata } from '@/config';
 import { neue_montreal } from '@/fonts';
 import { Offcanvas } from '@/layout';
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <Offcanvas />
           {children}
+          <Chatbot />
         </Providers>
       </body>
     </html>
