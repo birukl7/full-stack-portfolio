@@ -39,7 +39,7 @@ export function Description() {
         >
           <div className='max-lg:relative max-lg:right-auto max-lg:top-auto max-lg:mt-4 max-lg:flex max-lg:justify-end lg:absolute lg:right-0 lg:top-full lg:me-10'>
             <a
-              href='/BIRUK_LEMMA_FULL_STACK.pdf'
+              href='/BIRUK_LEMMA_FULLSTACK.pdf'
               target='_blank'
               rel='noopener noreferrer'
             >

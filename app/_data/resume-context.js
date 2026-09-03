@@ -4,7 +4,7 @@ export const RESUME_CONTEXT = {
   location: 'Addis Ababa, Ethiopia',
   email: 'biruklemmadebela@gmail.com',
   phone: '+251 94405361',
-  resumeUrl: '/BIRUK_LEMMA_FULL_STACK.pdf',
+  resumeUrl: '/BIRUK_LEMMA_FULLSTACK.pdf',
   socials: {
     github: 'https://www.github.com/birukl7/',
     linkedin: 'https://www.linkedin.com/in/biruk-lemma/',
@@ -111,7 +111,7 @@ You can click any project on this page to view interactive case studies and medi
     q.includes('download') ||
     q.includes('experience')
   ) {
-    return `Biruk Lemma is a Full Stack Software Engineer specializing in high-performance web and mobile apps. You can view or download his official resume here: [Download Resume PDF](/BIRUK_LEMMA_FULL_STACK.pdf).`;
+    return `Biruk Lemma is a Full Stack Software Engineer specializing in high-performance web and mobile apps. You can view or download his official resume here: [Download Resume PDF](/BIRUK_LEMMA_FULLSTACK.pdf).`;
   }
 
   if (
