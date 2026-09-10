@@ -1,41 +1,79 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 
-import { projectPages } from '@/data';
-import { useFollowPointer } from '@/hooks';
+import { ArrowRight, ExternalLink, Github } from 'lucide-react';
+import Image from 'next/image';
 
-import {
-  ThumbnailAction,
-  ThumbnailCursorCircle,
-  ThumbnailCursorLabel,
-  ThumbnailLabel,
-  ThumbnailList,
-  ThumbnailModal,
-} from './components';
-import { scaleUp } from './variants';
+import { projectPages, thumbnailOptions } from '@/data';
+
 import { ProjectDetailDialog } from '../project-dialog';
 
+const techStacks = {
+  'nodd-ticket': ['React', 'Next.js', 'Node.js', 'MongoDB', 'TailwindCSS'],
+  'excelet-academy': [
+    'React Native',
+    'Node.js',
+    'Express',
+    'MongoDB',
+    'REST API',
+  ],
+  serdo: ['React', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS'],
+  placeopia: ['React Native', 'Node.js', 'Express', 'MongoDB'],
+};
+
+function ProjectCard({ project, onProjectClick }) {
+  const slug = project.href.replace(/^\//, '');
+  const tags = techStacks[slug] || [];
+  const cloudinaryUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'demo'}/image/upload/${project.image}`;
+
+  return (
+    <div
+      className='project-card group cursor-pointer'
+      onClick={() => onProjectClick(slug)}
+    >
+      <div className='project-card-img'>
+        <Image
+          src={cloudinaryUrl}
+          fill={true}
+          sizes='(max-width: 768px) 100vw, 50vw'
+          alt={project.title}
+          className='object-cover transition-transform duration-500 group-hover:scale-105'
+        />
+      </div>
+      <div className='project-card-body'>
+        <h3 className='project-card-title'>{project.title}</h3>
+        <p className='project-card-desc'>{project.type}</p>
+        <div className='project-card-tags'>
+          {tags.map(tag => (
+            <span key={tag} className='tag'>
+              {tag}
+            </span>
+          ))}
+        </div>
+        <div className='project-card-actions'>
+          <button className='tag-filled'>
+            <ExternalLink size={12} className='mr-1 inline' />
+            Details
+          </button>
+          <a
+            href='https://github.com/birukl7'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='btn-ghost'
+            onClick={e => e.stopPropagation()}
+          >
+            <Github size={14} />
+            Source
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function Thumbnail() {
-  /** @type {import('react').MutableRefObject<HTMLElement>} */
-  const modal = useRef(null);
-  /** @type {import('react').MutableRefObject<HTMLElement>} */
-  const cursor = useRef(null);
-  /** @type {import('react').MutableRefObject<HTMLElement>} */
-  const label = useRef(null);
-
   const [selectedProject, setSelectedProject] = useState(null);
-
-  const {
-    item: { active, index },
-    handlePointerEnter,
-    handlePointerLeave,
-    moveItems,
-  } = useFollowPointer({
-    modal,
-    cursor,
-    label,
-  });
 
   const handleProjectClick = useCallback(slug => {
     const project = projectPages[slug];
@@ -50,35 +88,29 @@ export function Thumbnail() {
 
   return (
     <>
-      <section
-        className='container relative'
-        onPointerMove={({ clientX, clientY }) => moveItems(clientX, clientY)}
-      >
-        <div className='my-8 flex flex-col gap-10'>
-          <ThumbnailLabel>Recent work</ThumbnailLabel>
-          <ThumbnailList
-            handlePointerEnter={handlePointerEnter}
-            handlePointerLeave={handlePointerLeave}
-            moveItems={moveItems}
-            onProjectClick={handleProjectClick}
-          />
-          <ThumbnailModal
-            ref={modal}
-            variants={scaleUp}
-            active={active}
-            index={index}
-          />
-          <ThumbnailCursorCircle
-            ref={cursor}
-            variants={scaleUp}
-            active={active}
-          />
-          <ThumbnailCursorLabel ref={label} variants={scaleUp} active={active}>
-            View
-          </ThumbnailCursorLabel>
-          {/* <ThumbnailAction>
-            More work<sup className='text-muted-foreground'>14</sup>
-          </ThumbnailAction> */}
+      <section id='projects' className='section-container py-8'>
+        {/* Section header */}
+        <div className='section-header'>
+          <h2 className='section-title'>featured projects</h2>
+          <a
+            href='https://github.com/birukl7'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='section-link'
+          >
+            view more <ArrowRight size={14} />
+          </a>
+        </div>
+
+        {/* Project grid */}
+        <div className='grid gap-5 sm:grid-cols-2'>
+          {thumbnailOptions.map(project => (
+            <ProjectCard
+              key={project.href}
+              project={project}
+              onProjectClick={handleProjectClick}
+            />
+          ))}
         </div>
       </section>
 

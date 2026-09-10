@@ -1,50 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import 'next-cloudinary/dist/cld-video-player.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 13% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+    --primary: 220 13% 18%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 220 13% 18%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 13% 18%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 4%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 4%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 9%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 0 0% 83%;
+  }
+
   * {
     border-color: theme(colors.border);
   }
 
   *::selection {
-    background-color: theme(colors.muted.foreground);
-    color: theme(colors.background);
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Smooth transition when toggling themes */
+  html.theme-transitioning,
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease !important;
   }
 
   body {
-    background-color: theme(colors.background);
-    color: theme(colors.foreground);
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', var(--font-neue-montreal), system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer base {
   /* Firefox */
   * {
-    scrollbar-color: theme(colors.secondary.foreground)
-      theme(colors.secondary.DEFAULT);
+    scrollbar-color: hsl(var(--muted-foreground) / 0.4) hsl(var(--muted));
+    scrollbar-width: thin;
   }
 
   /* Chrome, Edge, and Safari */
   *::-webkit-scrollbar {
-    width: theme(width[1.5]);
+    width: 6px;
   }
 
   *::-webkit-scrollbar-track {
-    background-color: theme(colors.secondary.DEFAULT);
+    background-color: hsl(var(--muted));
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: theme(colors.secondary.foreground);
-    border-radius: theme(borderRadius.full);
+    background-color: hsl(var(--muted-foreground) / 0.4);
+    border-radius: 9999px;
 
     &:hover {
-      background-color: theme(colors.secondary.DEFAULT);
+      background-color: hsl(var(--muted-foreground) / 0.7);
     }
   }
 }
 
+/* ========== Utility Classes ========== */
+
+@layer components {
+  /* Section container */
+  .section-container {
+    @apply mx-auto max-w-3xl px-6;
+  }
+
+  /* Section heading with "view more" link */
+  .section-header {
+    @apply mb-6 flex items-center justify-between;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold tracking-tight text-foreground;
+  }
+
+  .section-link {
+    @apply flex items-center gap-1 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground;
+  }
+
+  /* Tag / Badge */
+  .tag {
+    @apply inline-flex items-center rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-xs font-medium text-muted-foreground transition-colors;
+  }
+
+  .tag-filled {
+    @apply inline-flex items-center rounded-full bg-foreground px-3 py-1 text-xs font-medium text-background transition-colors hover:bg-foreground/80;
+  }
+
+  /* Card */
+  .card {
+    @apply overflow-hidden rounded-xl border border-border bg-card;
+  }
+
+  /* Tab switcher */
+  .tab-group {
+    @apply mx-auto mb-8 flex max-w-md overflow-hidden rounded-lg border border-border bg-muted/30;
+  }
+
+  .tab-btn {
+    @apply flex-1 px-6 py-2.5 text-sm font-medium text-muted-foreground transition-all duration-200;
+  }
+
+  .tab-btn-active {
+    @apply bg-background text-foreground shadow-sm;
+  }
+
+  /* Experience entry */
+  .exp-entry {
+    @apply relative border-b border-border px-6 py-6 last:border-b-0;
+  }
+
+  .exp-logo {
+    @apply flex size-10 shrink-0 items-center justify-center rounded-full bg-muted text-sm font-bold text-foreground;
+  }
+
+  .exp-company {
+    @apply text-base font-semibold text-foreground;
+  }
+
+  .exp-role {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .exp-date {
+    @apply whitespace-nowrap text-xs text-muted-foreground;
+  }
+
+  .exp-bullet {
+    @apply text-sm leading-relaxed text-muted-foreground;
+  }
+
+  /* Project card */
+  .project-card {
+    @apply card flex flex-col;
+  }
+
+  .project-card-img {
+    @apply relative aspect-video w-full overflow-hidden bg-muted;
+  }
+
+  .project-card-body {
+    @apply flex flex-1 flex-col p-4;
+  }
+
+  .project-card-title {
+    @apply mb-1 text-base font-semibold text-foreground;
+  }
+
+  .project-card-desc {
+    @apply mb-3 line-clamp-2 text-sm text-muted-foreground;
+  }
+
+  .project-card-tags {
+    @apply mb-3 flex flex-wrap gap-1.5;
+  }
+
+  .project-card-actions {
+    @apply mt-auto flex flex-wrap gap-2;
+  }
+
+  /* Blog post entry */
+  .post-entry {
+    @apply border-b border-border px-2 py-5 last:border-b-0;
+  }
+
+  .post-title {
+    @apply text-base font-semibold text-foreground transition-colors hover:text-foreground/80;
+  }
+
+  .post-meta {
+    @apply flex flex-wrap items-center gap-3 text-xs text-muted-foreground;
+  }
+
+  .post-desc {
+    @apply mt-1.5 line-clamp-2 text-sm text-muted-foreground;
+  }
+
+  .post-tags {
+    @apply mt-2.5 flex flex-wrap gap-1.5;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background transition-all hover:bg-foreground/85;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-all hover:bg-muted;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground transition-all hover:bg-muted hover:text-foreground;
+  }
+
+  /* Social icon button */
+  .social-icon {
+    @apply flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground;
+  }
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+
+/* Amoeba shape - keep for backward compat */
 @keyframes morph {
   0%, 100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
@@ -63,4 +289,3 @@
 .animate-amoeba {
   animation: morph 8s ease-in-out infinite;
 }
-

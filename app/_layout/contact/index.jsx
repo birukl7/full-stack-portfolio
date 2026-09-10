@@ -1,28 +1,55 @@
 'use client';
 
-import { useRef } from 'react';
-
-import { motion } from 'framer-motion';
-
-import { useContactSlider } from '@/hooks';
-
-import { SocialInfo, UserDetails } from './components';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 export function Contact() {
-  /** @type {import('react').MutableRefObject<HTMLElement>} */
-  const containerRef = useRef(null);
-  const { transformX, transformY } = useContactSlider(containerRef);
+  const year = new Date().getFullYear();
 
   return (
-    <motion.footer
-      ref={containerRef}
-      className='relative max-h-screen bg-foreground text-background mt-20'
-      style={{ y: transformY }}
-    >
-      <div style={{ paddingBlock: 'clamp(5em, 21vh, 12em)' }}>
-        <UserDetails transformX={transformX} />
-        <SocialInfo />
+    <footer id='contact' className='mt-12 border-t border-border'>
+      <div className='section-container flex items-center justify-between py-6'>
+        <p className='text-sm text-muted-foreground'>
+          © {year}{' '}
+          <a
+            href='/'
+            className='font-medium text-foreground transition-colors hover:text-foreground/80'
+          >
+            biruk.dev
+          </a>{' '}
+          |{' '}
+          <a href='#' className='transition-colors hover:text-foreground'>
+            privacy
+          </a>
+        </p>
+
+        <div className='flex items-center gap-1'>
+          <a
+            href='https://www.linkedin.com/in/biruk-lemma/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='social-icon'
+            aria-label='LinkedIn'
+          >
+            <Linkedin size={16} />
+          </a>
+          <a
+            href='https://www.github.com/birukl7/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='social-icon'
+            aria-label='GitHub'
+          >
+            <Github size={16} />
+          </a>
+          <a
+            href='mailto:biruklemmadebela@gmail.com'
+            className='social-icon'
+            aria-label='Email'
+          >
+            <Mail size={16} />
+          </a>
+        </div>
       </div>
-    </motion.footer>
+    </footer>
   );
 }

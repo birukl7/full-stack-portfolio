@@ -3,6 +3,7 @@ import { tailwindPlugin } from './app/_lib';
 
 /** @type {import('tailwindcss').Config} */
 const tailwindConfig = {
+  darkMode: 'class',
   content: ['./components/**/*.{js,jsx,mdx}', './app/**/*.{js,jsx,mdx}'],
   plugins: [tailwindPlugin, animatePlugin],
 };

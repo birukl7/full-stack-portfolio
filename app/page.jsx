@@ -1,31 +1,30 @@
 import {
   Contact,
-  Description,
+  Experience,
   Header,
   Navbar,
-  Project,
+  Posts,
   Thumbnail,
-  Transition,
 } from '@/layout';
 
 /** @type {import('next').Metadata} */
 export const metadata = {
   title: 'Home | Biruk Lemma',
   description:
-    'Biruk Lemma is a software engineer with a passion for building web applications that are both functional and aesthetically pleasing.',
+    'Biruk Lemma is a Full Stack Software Engineer passionate about crafting high-performance, aesthetically stunning web and mobile applications.',
 };
 
 export default function Home() {
   return (
-    <Transition>
+    <>
       <Navbar />
       <Header />
       <main>
-        <Description />
+        <Experience />
         <Thumbnail />
-        <Project />
+        <Posts />
       </main>
       <Contact />
-    </Transition>
+    </>
   );
 }

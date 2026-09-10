@@ -1,60 +1,93 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { MoveDownRight } from 'lucide-react';
+import { FileText, Github, Linkedin, Mail } from 'lucide-react';
 import { CldImage } from 'next-cloudinary';
-
-import { ParallaxSlider } from '@/components';
-
-import { slideUp } from './variants';
 
 export function Header() {
   return (
-    <motion.header
-      className='relative h-screen overflow-hidden bg-secondary-foreground text-background'
-      variants={slideUp}
-      initial='initial'
-      animate='enter'
-    >
-      {/* Amoeba shape image on the left side */}
-      <div className='absolute left-8 top-1/2 z-0 -translate-y-1/2 max-md:left-1/2 max-md:top-1/3 max-md:-translate-x-1/2 md:left-16 lg:left-24'>
-        <div className='animate-amoeba relative size-72 overflow-hidden border-2 border-background/20 shadow-2xl transition-all duration-700 md:size-[420px] lg:size-[480px]'>
-          <CldImage
-            src='biruk_lemma_qjnvf8'
-            className='scale-105 object-cover object-top'
-            fill={true}
-            sizes='(max-width: 768px) 288px, (max-width: 1024px) 420px, 480px'
-            alt='Biruk Lemma Personal Picture'
-            priority
-          />
-        </div>
-      </div>
-
-      <div className='relative z-10 flex h-full flex-col justify-end gap-2 md:flex-col-reverse md:justify-normal'>
-        <div className='select-none'>
-          <h1 className='text-[max(7em,12vw)]'>
-            <ParallaxSlider repeat={4} baseVelocity={2}>
-              <span className='pe-12'>
-                Biruk Lemma
-                <span className='spacer'>-</span>
-              </span>
-            </ParallaxSlider>
+    <header className='section-container pb-12 pt-10'>
+      <div className='flex flex-col-reverse gap-8 md:flex-row md:items-center md:justify-between'>
+        {/* Left — Text */}
+        <div className='animate-fade-in-up flex-1'>
+          <h1 className='mb-3 text-3xl font-bold tracking-tight md:text-4xl'>
+            hi biruk here. <span className='inline-block'>👋</span>
           </h1>
+
+          <p className='mb-1 text-base '>
+            Full Stack Software Engineer from Addis Ababa 🇪🇹
+          </p>
+
+          <p className='mb-2 leading-relaxed text-muted-foreground'>
+            Backend by profession, full-stack by{' '}
+            <span className='font-medium text-foreground'>passion</span>.
+            <br></br>I build and ship{' '}
+            <span className='font-medium text-foreground'>
+              web & mobile apps
+            </span>
+            .
+          </p>
+
+          {/* <p className='mb-5  text-muted-foreground'>
+            <span className='font-medium text-foreground'>Open to freelance work</span>{' '}
+            — feel free to reach out!
+          </p> */}
+
+          {/* Resume + Social icons */}
+          <div className='flex flex-wrap items-center gap-3'>
+            <a
+              href='/BIRUK_LEMMA_FULLSTACK.pdf'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='btn-primary'
+            >
+              Resume
+              <FileText size={15} />
+            </a>
+
+            <a
+              href='https://www.linkedin.com/in/biruk-lemma/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='social-icon'
+              aria-label='LinkedIn'
+            >
+              <Linkedin size={18} />
+            </a>
+
+            <a
+              href='https://www.github.com/birukl7/'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='social-icon'
+              aria-label='GitHub'
+            >
+              <Github size={18} />
+            </a>
+
+            <a
+              href='mailto:biruklemmadebela@gmail.com'
+              className='social-icon'
+              aria-label='Email'
+            >
+              <Mail size={18} />
+            </a>
+          </div>
         </div>
 
-        <div className='md:ml-auto'>
-          <div className='mx-10 max-md:my-12 md:mx-36'>
-            <div className='mb-4 md:mb-20'>
-              <MoveDownRight size={28} strokeWidth={1.25} />
-            </div>
-
-            <h4 className='text-[clamp(1.55em,2.5vw,2.75em)]'>
-              <span className='block'>Software Engineer</span>
-              <span className='block'>Designer &amp; Developer</span>
-            </h4>
+        {/* Right — Photo */}
+        <div className='animate-fade-in-up animation-delay-200'>
+          <div className='relative size-28 overflow-hidden rounded-none border border-border bg-muted/30 shadow-sm md:size-32'>
+            <CldImage
+              src='biruk_lemma_qjnvf8'
+              className='object-cover object-top'
+              fill={true}
+              sizes='(max-width: 768px) 112px, 128px'
+              alt='Biruk Lemma'
+              priority
+            />
           </div>
         </div>
       </div>
-    </motion.header>
+    </header>
   );
 }

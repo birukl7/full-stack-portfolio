@@ -3,9 +3,22 @@ import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import { Chatbot } from '@/components';
 import { rootMetadata } from '@/config';
 import { neue_montreal } from '@/fonts';
-import { Offcanvas } from '@/layout';
 import { Providers } from '@/providers';
 import './globals.css';
+
+const themeScript = `
+(function() {
+  try {
+    var stored = localStorage.getItem('theme');
+    var isDark = stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  } catch (e) {}
+})();
+`;
 
 /** @type {import('next').Metadata} */
 export const metadata = rootMetadata;
@@ -13,7 +26,15 @@ export const metadata = rootMetadata;
 /** @param {import('react').PropsWithChildren<unknown>} */
 export default function RootLayout({ children }) {
   return (
-    <html lang='en' dir='ltr' className={neue_montreal.variable}>
+    <html
+      lang='en'
+      dir='ltr'
+      className={neue_montreal.variable}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <GoogleTagManager gtmId='GTM-KPC28N3H' />
       <GoogleAnalytics gaId='G-V4YN3PBQ67' />
       <body className={neue_montreal.className}>
@@ -26,7 +47,6 @@ export default function RootLayout({ children }) {
           ></iframe>
         </noscript>
         <Providers>
-          <Offcanvas />
           {children}
           <Chatbot />
         </Providers>
