@@ -5,6 +5,7 @@ export const RESUME_CONTEXT = {
   email: 'biruklemmadebela@gmail.com',
   phone: '+251 944055361',
   resumeUrl: '/BIRUK_LEMMA_FULLSTACK.pdf',
+  lastUpdated: 'Sep 17, 2026',
   socials: {
     github: 'https://www.github.com/birukl7/',
     linkedin: 'https://www.linkedin.com/in/biruk-lemma/',
