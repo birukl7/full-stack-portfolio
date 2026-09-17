@@ -3,7 +3,7 @@ export const RESUME_CONTEXT = {
   title: 'Full Stack Software Engineer',
   location: 'Addis Ababa, Ethiopia',
   email: 'biruklemmadebela@gmail.com',
-  phone: '+251 94405361',
+  phone: '+251 944055361',
   resumeUrl: '/BIRUK_LEMMA_FULLSTACK.pdf',
   socials: {
     github: 'https://www.github.com/birukl7/',
@@ -11,25 +11,29 @@ export const RESUME_CONTEXT = {
     upwork: 'https://upwork.com/freelancers/~01ded8dd6af250627c',
     instagram: 'https://www.instagram.com/birukl7/',
   },
-  bio: 'Biruk Lemma started learning web development back in 2022 using W3Schools and has since built full-stack applications, mobile apps, Telegram bots, and custom CRMs. Backend by profession, full-stack by passion.',
+  bio: 'Biruk Lemma started learning web development back in 2023 using W3Schools and has since built full-stack applications, mobile apps, Telegram bots, and custom CRMs. Backend by profession, full-stack by passion.',
   techStack: [
-    'React',
+    'React.js',
     'Next.js',
     'JavaScript (ES6+)',
+    'TypeScript',
+    'PHP',
+    'Laravel',
     'Node.js',
     'Express.js',
-    'MongoDB',
+    'Python',
+    'Java',
+    'MySQL',
     'PostgreSQL',
-    'Supabase',
-    'Laravel',
-    'PHP',
-    'Inertia.js',
-    'Figma',
-    'GoHighLevel',
-    'TailwindCSS',
-    'GSAP',
-    'Framer Motion',
-    'React Native',
+    'Redis',
+    'Docker',
+    'AWS',
+    'API Integrations',
+    'GoHighLevel Integrations',
+    'WordPress',
+    'Workflow Automation',
+    'Database Design',
+    'Agile/Scrum',
     'Git / GitHub',
   ],
   projects: [
@@ -101,7 +105,7 @@ You can click any project on this page to view interactive case studies and medi
     return `You can get in touch with Biruk directly via:
 
 • **Email**: [biruklemmadebela@gmail.com](mailto:biruklemmadebela@gmail.com)
-• **Phone**: [+251 94405361](tel:+25194405361)
+• **Phone**: [+251 944055361](tel:+251944055361)
 • **LinkedIn**: [biruk-lemma](https://www.linkedin.com/in/biruk-lemma/)
 • **GitHub**: [@birukl7](https://www.github.com/birukl7/)
 • **Upwork**: [Profile](https://upwork.com/freelancers/~01ded8dd6af250627c)`;
@@ -116,11 +120,11 @@ You can click any project on this page to view interactive case studies and medi
   ) {
     return `Biruk's core tech stack includes:
 
-• **Frontend**: React, Next.js, JavaScript, TailwindCSS, Framer Motion, GSAP, HTML5/CSS3
-• **Backend**: Node.js, Express.js, REST APIs
-• **Databases**: MongoDB, PostgreSQL
-• **Mobile**: React Native
-• **Tools**: Git, GitHub, Vercel, Cloudinary`;
+• **Languages & Backend**: PHP, Laravel, Node.js, Express.js, TypeScript, Python, Java
+• **Frontend**: React.js, Next.js, JavaScript (ES6+), TailwindCSS
+• **Databases & Cache**: MySQL, PostgreSQL, Redis
+• **DevOps & Cloud**: Docker, AWS, Git/GitHub
+• **Automation & CMS**: GoHighLevel Integrations, WordPress, Workflow Automation`;
   }
 
   if (
@@ -129,7 +133,7 @@ You can click any project on this page to view interactive case studies and medi
     q.includes('download') ||
     q.includes('experience')
   ) {
-    return `Biruk Lemma is a Full-Stack Developer and GoHighLevel Specialist at Fynz IQ (https://www.fynz.tax/), previously Full Stack Developer & CRM Specialist at Nodd Solutions (https://noddsolutions.com/), Backend Developer at Pluto Technologies (https://plutotechnologies.org/), and Freelance Developer. He holds a Bachelor of Software Engineering from Addis Ababa Science and Technology University (AASTU). You can view or download his official resume here: [Download Resume PDF](/BIRUK_LEMMA_FULLSTACK.pdf).`;
+    return `Biruk Lemma is a Full-Stack Developer and GoHighLevel Specialist at Fynz IQ (https://www.fynz.tax/), Lead Full-Stack Developer at Nodd Solutions (https://noddsolutions.com/), and previously Backend Engineer at Pluto Technologies (https://plutotechnologies.org/) and Laravel Mentor at Google Developers Students Club. He holds a Bachelor of Software Engineering from Addis Ababa Science and Technology University (AASTU). You can view or download his official resume here: [Download Resume PDF](/BIRUK_LEMMA_FULLSTACK.pdf).`;
   }
 
   if (

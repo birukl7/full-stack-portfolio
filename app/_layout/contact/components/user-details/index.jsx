@@ -38,7 +38,7 @@ export function UserDetails({ transformX }) {
 
       <Row>
         <div className='relative w-full'>
-          <div className='h-[1px] bg-muted-foreground' />
+          <div className='h-px bg-muted-foreground' />
           <div className='absolute right-0 top-0 z-20 -translate-x-1/2 -translate-y-1/2'>
             <motion.div style={{ x: transformX }}>
               <Link href='/contact' passHref>
@@ -65,13 +65,13 @@ export function UserDetails({ transformX }) {
             </a>
           </div>
           <div>
-            <a href='tel:+25194405361'>
+            <a href='tel:+251944055361'>
               <MagneticButton
                 variant='outline'
                 size='md'
                 className='w-full border-muted-foreground'
               >
-                +251 94405361
+                +251 944055361
               </MagneticButton>
             </a>
           </div>

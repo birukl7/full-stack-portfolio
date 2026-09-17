@@ -66,6 +66,12 @@ function ExperienceEntry({ entry }) {
             <p className='exp-role'>
               {entry.role}
               {entry.type && <span> ({entry.type})</span>}
+              {entry.location && (
+                <span className='text-xs text-muted-foreground/75'>
+                  {' '}
+                  • {entry.location}
+                </span>
+              )}
             </p>
           </div>
         </div>

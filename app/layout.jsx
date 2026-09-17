@@ -1,6 +1,5 @@
 import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 
-import { Chatbot } from '@/components';
 import { rootMetadata } from '@/config';
 import { neue_montreal } from '@/fonts';
 import { Providers } from '@/providers';
@@ -46,10 +45,7 @@ export default function RootLayout({ children }) {
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
         </noscript>
-        <Providers>
-          {children}
-          <Chatbot />
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
