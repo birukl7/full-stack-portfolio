@@ -14,7 +14,7 @@ export function Contact() {
             href='/'
             className='font-medium text-foreground transition-colors hover:text-foreground/80'
           >
-            biruk.dev
+            biruk.pro.et
           </a>{' '}
           |{' '}
           <a href='#' className='transition-colors hover:text-foreground'>

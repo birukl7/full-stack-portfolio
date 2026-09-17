@@ -1,21 +1,20 @@
-
-import { projectDetails } from "./project-details";
-import { thumbnailOptions } from "./thumbnail-options";
-
+import { projectDetails } from './project-details';
+import { thumbnailOptions } from './thumbnail-options';
 
 export const projectPages = thumbnailOptions.reduce(
-  (acc, { href, title, image }) => {
-    const slug = href.replace(/^\//, "");
+  (acc, { href, title, image, link }) => {
+    const slug = href.replace(/^\//, '');
 
     const details = projectDetails[slug] || {};
 
     acc[slug] = {
       slug,
       title,
-      description: details.description || ["Project description coming soon."],
+      link: link || details.link || null,
+      description: details.description || ['Project description coming soon.'],
       media: details.media || [
         {
-          type: "image",
+          type: 'image',
           source: image,
         },
       ],
@@ -23,5 +22,5 @@ export const projectPages = thumbnailOptions.reduce(
 
     return acc;
   },
-  {}
+  {},
 );

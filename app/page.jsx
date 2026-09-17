@@ -1,11 +1,4 @@
-import {
-  Contact,
-  Experience,
-  Header,
-  Navbar,
-  Posts,
-  Thumbnail,
-} from '@/layout';
+import { Contact, Experience, Header, Navbar, Thumbnail } from '@/layout';
 
 /** @type {import('next').Metadata} */
 export const metadata = {
@@ -20,9 +13,8 @@ export default function Home() {
       <Navbar />
       <Header />
       <main>
-        <Experience />
         <Thumbnail />
-        <Posts />
+        <Experience />
       </main>
       <Contact />
     </>

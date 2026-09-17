@@ -22,7 +22,7 @@ ${RESUME_CONTEXT.bio}
 Tech Stack:
 ${RESUME_CONTEXT.techStack.join(', ')}
 
-Featured Projects:
+Projects:
 ${RESUME_CONTEXT.projects.map(p => `- ${p.name}: ${p.summary}`).join('\n')}
 
 Guidelines:

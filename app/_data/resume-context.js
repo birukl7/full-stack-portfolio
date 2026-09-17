@@ -20,6 +20,12 @@ export const RESUME_CONTEXT = {
     'Express.js',
     'MongoDB',
     'PostgreSQL',
+    'Supabase',
+    'Laravel',
+    'PHP',
+    'Inertia.js',
+    'Figma',
+    'GoHighLevel',
     'TailwindCSS',
     'GSAP',
     'Framer Motion',
@@ -31,25 +37,25 @@ export const RESUME_CONTEXT = {
       name: 'NODD Ticket',
       slug: 'nodd-ticket',
       summary:
-        'Enterprise-grade ticket and task management platform developed for a Sydney-based company to replace ClickUp. Features List/Kanban/Calendar views, drag-and-drop tasks, Gmail integration, and real-time collaboration.',
+        'Enterprise-grade ticket and task management platform developed with Next.js, Supabase, and heavy drag-and-drop workflows for a Sydney-based company to replace ClickUp. Features List/Kanban/Calendar views, Gmail integration, and real-time collaboration.',
     },
     {
       name: 'Excelet Academy',
       slug: 'excelet-academy',
       summary:
-        'Digital education platform serving 1,000+ Ethiopian students with national exam preparation, practice question banks, admin portal, and cross-platform mobile app.',
+        'Digital education platform (https://exceletacademy.com/) serving 1,000+ Ethiopian students with national exam preparation and question banks, built with Laravel, Laravel Sanctum, and Laravel API backend powering the admin suite and student mobile app.',
     },
     {
       name: 'Serdo Store',
       slug: 'serdo',
       summary:
-        'Retail stock management and automated inventory auditing platform with real-time stock alerts, revenue analytics, and automated tax reporting.',
+        'Retail e-commerce and inventory stock management platform (https://serdo.et) built with Laravel, Inertia.js, and React.js featuring real-time stock alerts, revenue analytics, and automated tax reporting.',
     },
     {
       name: 'Placeopia',
       slug: 'placeopia',
       summary:
-        'Urban experience and location discovery platform featuring mobile app for exploring curated local venues/events and admin dashboard for venue management.',
+        'Urban experience and venue discovery platform designed in Figma, featuring a React Native mobile application powered by a scalable Laravel backend API.',
     },
   ],
 };
@@ -111,7 +117,7 @@ You can click any project on this page to view interactive case studies and medi
     q.includes('download') ||
     q.includes('experience')
   ) {
-    return `Biruk Lemma is a Full Stack Software Engineer specializing in high-performance web and mobile apps. You can view or download his official resume here: [Download Resume PDF](/BIRUK_LEMMA_FULLSTACK.pdf).`;
+    return `Biruk Lemma is a Full-Stack Developer and GoHighLevel Specialist at Fynz IQ (https://www.fynz.tax/), previously Full Stack Developer & CRM Specialist at Nodd Solutions (https://noddsolutions.com/), Backend Developer at Pluto Technologies (https://plutotechnologies.org/), and Freelance Developer. He holds a Bachelor of Software Engineering from Addis Ababa Science and Technology University (AASTU). You can view or download his official resume here: [Download Resume PDF](/BIRUK_LEMMA_FULLSTACK.pdf).`;
   }
 
   if (

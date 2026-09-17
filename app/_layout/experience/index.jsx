@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 
+import { ExternalLink } from 'lucide-react';
 import Image from 'next/image';
 
 import { experienceData } from '@/data';
@@ -10,29 +11,58 @@ function ExperienceEntry({ entry }) {
   const isImageLogo =
     typeof entry.logo === 'string' && entry.logo.startsWith('/');
 
+  const logoNode = (
+    <div
+      className={`exp-logo overflow-hidden ${
+        isImageLogo ? 'bg-white p-1 ring-1 ring-border/50' : ''
+      }`}
+    >
+      {isImageLogo ? (
+        <Image
+          src={entry.logo}
+          alt={`${entry.company} logo`}
+          width={36}
+          height={36}
+          className='size-full object-contain'
+        />
+      ) : (
+        <span>{entry.logo}</span>
+      )}
+    </div>
+  );
+
   return (
     <div className='exp-entry'>
       <div className='flex items-start justify-between gap-4'>
         <div className='flex items-start gap-3'>
-          <div
-            className={`exp-logo overflow-hidden ${
-              isImageLogo ? 'bg-white p-1 ring-1 ring-border/50' : ''
-            }`}
-          >
-            {isImageLogo ? (
-              <Image
-                src={entry.logo}
-                alt={`${entry.company} logo`}
-                width={36}
-                height={36}
-                className='size-full object-contain'
-              />
-            ) : (
-              <span>{entry.logo}</span>
-            )}
-          </div>
+          {entry.href ? (
+            <a
+              href={entry.href}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='transition-opacity hover:opacity-80'
+            >
+              {logoNode}
+            </a>
+          ) : (
+            logoNode
+          )}
           <div>
-            <h3 className='exp-company'>{entry.company}</h3>
+            <h3 className='exp-company'>
+              {entry.href ? (
+                <a
+                  href={entry.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='inline-flex items-center gap-1 transition-colors hover:text-foreground/80 hover:underline'
+                >
+                  {entry.company}
+                  <ExternalLink size={13} className='text-muted-foreground' />
+                </a>
+              ) : (
+                entry.company
+              )}
+            </h3>
             <p className='exp-role'>
               {entry.role}
               {entry.type && <span> ({entry.type})</span>}

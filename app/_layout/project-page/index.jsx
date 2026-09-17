@@ -1,5 +1,6 @@
 'use client';
 
+import { ExternalLink } from 'lucide-react';
 import { CldImage, CldVideoPlayer } from 'next-cloudinary';
 
 import { Center } from '@/components';
@@ -10,8 +11,9 @@ import { randomId } from '@/utils';
  * @param {string} props.title
  * @param {string[]} props.description
  * @param {{ type: 'image' | 'video'; source: string }[]} props.media
+ * @param {string} [props.link]
  */
-export function ProjectPage({ title, description, media }) {
+export function ProjectPage({ title, description, media, link }) {
   const mediaItems = media.map(({ type, source }) => {
     const id = randomId();
     const isImage = type === 'image';
@@ -52,9 +54,22 @@ export function ProjectPage({ title, description, media }) {
         <div className='grid gap-6 md:grid-cols-2'>{mediaItems}</div>
 
         <div className='max-w-3xl space-y-6'>
-          <h1 className='text-4xl font-semibold leading-tight tracking-tight md:text-5xl'>
-            {title}
-          </h1>
+          <div className='flex flex-wrap items-center justify-between gap-4'>
+            <h1 className='text-4xl font-semibold leading-tight tracking-tight md:text-5xl'>
+              {title}
+            </h1>
+            {link && (
+              <a
+                href={link}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='btn-primary'
+              >
+                Visit Website
+                <ExternalLink size={15} />
+              </a>
+            )}
+          </div>
           <div className='space-y-4 pb-10 pt-4 text-base leading-relaxed text-muted-foreground md:text-lg md:leading-8'>
             {description.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>

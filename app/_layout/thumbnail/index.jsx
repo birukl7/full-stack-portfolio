@@ -10,22 +10,18 @@ import { projectPages, thumbnailOptions } from '@/data';
 import { ProjectDetailDialog } from '../project-dialog';
 
 const techStacks = {
-  'nodd-ticket': ['React', 'Next.js', 'Node.js', 'MongoDB', 'TailwindCSS'],
-  'excelet-academy': [
-    'React Native',
-    'Node.js',
-    'Express',
-    'MongoDB',
-    'REST API',
-  ],
-  serdo: ['React', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS'],
-  placeopia: ['React Native', 'Node.js', 'Express', 'MongoDB'],
+  'nodd-ticket': ['Next.js', 'Supabase', 'Heavy Drag & Drop'],
+  'excelet-academy': ['Laravel', 'Laravel Sanctum', 'Laravel API'],
+  serdo: ['Laravel', 'E-commerce', 'Inertia.js', 'React.js'],
+  placeopia: ['Laravel', 'React Native', 'Figma'],
 };
 
 function ProjectCard({ project, onProjectClick }) {
   const slug = project.href.replace(/^\//, '');
   const tags = techStacks[slug] || [];
   const cloudinaryUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'demo'}/image/upload/${project.image}`;
+  const sourceUrl = project.source || null;
+  const liveUrl = project.link || null;
 
   return (
     <div
@@ -43,7 +39,9 @@ function ProjectCard({ project, onProjectClick }) {
       </div>
       <div className='project-card-body'>
         <h3 className='project-card-title'>{project.title}</h3>
-        <p className='project-card-desc'>{project.type}</p>
+        <p className='project-card-desc'>
+          {project.description || project.type}
+        </p>
         <div className='project-card-tags'>
           {tags.map(tag => (
             <span key={tag} className='tag'>
@@ -52,20 +50,31 @@ function ProjectCard({ project, onProjectClick }) {
           ))}
         </div>
         <div className='project-card-actions'>
-          <button className='tag-filled'>
-            <ExternalLink size={12} className='mr-1 inline' />
-            Details
-          </button>
-          <a
-            href='https://github.com/birukl7'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='btn-ghost'
-            onClick={e => e.stopPropagation()}
-          >
-            <Github size={14} />
-            Source
-          </a>
+          <button className='tag-filled'>Details</button>
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='btn-ghost'
+              onClick={e => e.stopPropagation()}
+            >
+              <ExternalLink size={13} />
+              Visit
+            </a>
+          )}
+          {sourceUrl && (
+            <a
+              href={sourceUrl}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='btn-ghost'
+              onClick={e => e.stopPropagation()}
+            >
+              <Github size={14} />
+              Source
+            </a>
+          )}
         </div>
       </div>
     </div>
@@ -91,7 +100,7 @@ export function Thumbnail() {
       <section id='projects' className='section-container py-8'>
         {/* Section header */}
         <div className='section-header'>
-          <h2 className='section-title'>featured projects</h2>
+          <h2 className='section-title'>projects</h2>
           <a
             href='https://github.com/birukl7'
             target='_blank'
@@ -120,6 +129,7 @@ export function Thumbnail() {
         title={selectedProject?.title}
         description={selectedProject?.description}
         media={selectedProject?.media}
+        link={selectedProject?.link}
       />
     </>
   );

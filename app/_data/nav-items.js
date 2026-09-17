@@ -7,10 +7,10 @@ export const navItems = [
     href: '#projects',
     title: 'projects',
   },
-  {
-    href: '#blog',
-    title: 'blog',
-  },
+  // {
+  //   href: '#blog',
+  //   title: 'blog',
+  // },
   {
     href: '#contact',
     title: 'contact',

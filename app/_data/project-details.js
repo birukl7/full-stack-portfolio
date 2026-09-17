@@ -13,7 +13,7 @@ export const projectDetails = {
   'excelet-academy': {
     description: [
       'Excelet Academy is an all-in-one digital education and examination preparation platform built to empower Ethiopian students preparing for national curriculum exams. Serving over 1,000 active students, the platform delivers structured digital study resources, practice question banks, and interactive learning materials designed for an engaging learning experience on both web and mobile.',
-      'The platform is backed by a scalable backend infrastructure and an administrative web portal featuring full CRUD capabilities for course authoring, user administration, and curriculum management. A high-performance API seamlessly coordinates data between the administrative suite and the student-facing mobile application, which features an intuitive and accessible UI/UX.',
+      'The platform is backed by a scalable Laravel backend architecture using Laravel Sanctum for secure token authentication, powering an administrative web portal with full CRUD capabilities for course authoring and user management. A high-performance Laravel API seamlessly coordinates data between the administrative suite and the student-facing mobile application.',
     ],
     media: [
       { type: 'image', source: 'excelet-academy_qyn73s' },
@@ -24,7 +24,7 @@ export const projectDetails = {
 
   serdo: {
     description: [
-      'Serdo Store is a comprehensive inventory and retail stock management platform paired with a custom administrative web application, built to simplify and automate daily operational workflows for growing retail businesses. It provides business owners with complete oversight of their operations through centralized stock tracking, brand and category cataloging, and real-time inventory alerts.',
+      'Serdo Store is a modern retail e-commerce and inventory stock management platform built with Laravel, Inertia.js, and React to simplify and automate daily operational workflows for growing businesses. It provides store owners with centralized stock tracking, brand and category cataloging, and real-time inventory alerts.',
       'In addition to stock management, the system features integrated revenue analytics, automated tax calculation, and historical sales auditing tools that simplify financial reporting and bookkeeping. The clean, user-friendly interface allows staff to process inventory updates rapidly while maintaining data consistency and financial precision.',
     ],
     media: [
@@ -35,7 +35,7 @@ export const projectDetails = {
 
   placeopia: {
     description: [
-      'Placeopia is a modern location discovery and urban experience platform designed to help users explore curated local destinations, popular venues, and upcoming community events. Powered by a robust backend architecture and a comprehensive admin management dashboard, platform operators can easily onboard and verify new venues, schedule events, monitor user engagement, and moderate reviews.',
+      'Placeopia is a modern location discovery and urban experience platform designed in Figma, featuring a React Native mobile application powered by a scalable Laravel backend API. Platform operators can easily onboard and verify new venues, schedule events, monitor user engagement, and moderate reviews.',
       'The companion mobile application delivers a tailored discovery experience, featuring a sleek, responsive UI/UX that allows users to search nearby hotspots, save favorite places, read authentic community feedback, and discover curated local experiences on the go.',
     ],
     media: [
