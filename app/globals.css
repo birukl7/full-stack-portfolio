@@ -197,7 +197,7 @@
   }
 
   .project-card-desc {
-    @apply mb-3 line-clamp-2 text-sm text-muted-foreground;
+    @apply mb-3 text-sm leading-relaxed text-muted-foreground;
   }
 
   .project-card-tags {
