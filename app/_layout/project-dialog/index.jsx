@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { ExternalLink, X } from 'lucide-react';
+import Image from 'next/image';
 import { CldImage, CldVideoPlayer } from 'next-cloudinary';
 
 import { Center } from '@/components';
@@ -91,16 +92,24 @@ export function ProjectDetailDialog({
     return (
       <Center
         key={id}
-        className='relative aspect-video w-full overflow-hidden rounded-lg bg-secondary-foreground'
+        className='relative aspect-video w-full overflow-hidden rounded-none bg-secondary-foreground'
       >
-        {isImage && (
-          <CldImage
-            src={source}
-            fill={true}
-            className='object-cover'
-            alt={title || 'Project image'}
-          />
-        )}
+        {isImage &&
+          (source.startsWith('/') ? (
+            <Image
+              src={source}
+              fill={true}
+              className='object-cover'
+              alt={title || 'Project image'}
+            />
+          ) : (
+            <CldImage
+              src={source}
+              fill={true}
+              className='object-cover'
+              alt={title || 'Project image'}
+            />
+          ))}
         {isVideo && (
           <CldVideoPlayer
             src={source}
@@ -136,7 +145,7 @@ export function ProjectDetailDialog({
           {/* Dialog panel — this is the scroll container */}
           <motion.div
             ref={scrollRef}
-            className='relative z-10 mx-4 my-8 max-h-[calc(100vh-4rem)] w-full max-w-5xl overflow-y-auto overscroll-contain rounded-2xl bg-background shadow-2xl md:mx-8 md:my-12 md:max-h-[calc(100vh-6rem)]'
+            className='relative z-10 mx-4 my-8 max-h-[calc(100vh-4rem)] w-full max-w-5xl overflow-y-auto overscroll-contain rounded-none border border-border bg-background shadow-2xl md:mx-8 md:my-12 md:max-h-[calc(100vh-6rem)]'
             variants={dialogVariants}
             initial='initial'
             animate='enter'
@@ -146,7 +155,7 @@ export function ProjectDetailDialog({
             {/* Close button */}
             <button
               onClick={onClose}
-              className='sticky top-4 z-20 float-right mr-4 mt-4 flex items-center justify-center rounded-full bg-secondary p-2 transition-colors hover:bg-muted-foreground hover:text-background'
+              className='sticky top-4 z-20 float-right mr-4 mt-4 flex items-center justify-center rounded-none border border-border bg-secondary p-2 transition-colors hover:bg-muted-foreground hover:text-background'
               aria-label='Close dialog'
             >
               <X size={20} strokeWidth={1.5} />
@@ -169,7 +178,9 @@ export function ProjectDetailDialog({
                         rel='noopener noreferrer'
                         className='btn-primary'
                       >
-                        Visit Website
+                        {title?.toLowerCase().includes('invaders')
+                          ? 'Play Game'
+                          : 'Visit Website'}
                         <ExternalLink size={15} />
                       </a>
                     )}

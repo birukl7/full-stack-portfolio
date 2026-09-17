@@ -1,6 +1,7 @@
 'use client';
 
 import { ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 import { CldImage, CldVideoPlayer } from 'next-cloudinary';
 
 import { Center } from '@/components';
@@ -22,16 +23,24 @@ export function ProjectPage({ title, description, media, link }) {
     return (
       <Center
         key={id}
-        className='relative aspect-video w-full overflow-hidden rounded-lg bg-secondary-foreground'
+        className='relative aspect-video w-full overflow-hidden rounded-none bg-secondary-foreground'
       >
-        {isImage && (
-          <CldImage
-            src={source}
-            fill={true}
-            className='object-cover'
-            alt={title}
-          />
-        )}
+        {isImage &&
+          (source.startsWith('/') ? (
+            <Image
+              src={source}
+              fill={true}
+              className='object-cover'
+              alt={title}
+            />
+          ) : (
+            <CldImage
+              src={source}
+              fill={true}
+              className='object-cover'
+              alt={title}
+            />
+          ))}
         {isVideo && (
           <CldVideoPlayer
             src={source}
@@ -65,7 +74,9 @@ export function ProjectPage({ title, description, media, link }) {
                 rel='noopener noreferrer'
                 className='btn-primary'
               >
-                Visit Website
+                {title?.toLowerCase().includes('invaders')
+                  ? 'Play Game'
+                  : 'Visit Website'}
                 <ExternalLink size={15} />
               </a>
             )}

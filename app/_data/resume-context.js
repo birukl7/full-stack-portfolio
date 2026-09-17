@@ -11,7 +11,7 @@ export const RESUME_CONTEXT = {
     upwork: 'https://upwork.com/freelancers/~01ded8dd6af250627c',
     instagram: 'https://www.instagram.com/birukl7/',
   },
-  bio: 'Biruk Lemma is a Full Stack Software Engineer passionate about crafting high-performance, aesthetically stunning web and mobile applications with seamless user interactions.',
+  bio: 'Biruk Lemma started learning web development back in 2022 using W3Schools and has since built full-stack applications, mobile apps, Telegram bots, and custom CRMs. Backend by profession, full-stack by passion.',
   techStack: [
     'React',
     'Next.js',
@@ -57,6 +57,18 @@ export const RESUME_CONTEXT = {
       summary:
         'Urban experience and venue discovery platform designed in Figma, featuring a React Native mobile application powered by a scalable Laravel backend API.',
     },
+    {
+      name: 'My Habit',
+      slug: 'my-habit',
+      summary:
+        'A habit tracking web platform (https://my-habit.pro.et) integrated with an interactive Telegram bot, featuring calendar tracking, streak analytics, and an XP-based leveling journey.',
+    },
+    {
+      name: 'Space Invaders',
+      slug: 'space-invaders',
+      summary:
+        'Pure Vanilla JavaScript and HTML5 Canvas retro arcade game (playable at https://birukl7.github.io/space-invaders/) built with custom 2D collision physics, multidimensional array grid structures, and game loop architecture.',
+    },
   ],
 };
 
@@ -75,6 +87,7 @@ export function getLocalBotResponse(query) {
 2. **Excelet Academy**: An e-learning & national exam prep app serving 1,000+ Ethiopian students.
 3. **Serdo Store**: Retail inventory & stock management platform with automated revenue analytics.
 4. **Placeopia**: Urban destination discovery app and venue management platform.
+5. **My Habit**: A habit tracking platform with Telegram bot automation, streak calendar tracking, and a level journey (https://my-habit.pro.et).
 
 You can click any project on this page to view interactive case studies and media demos!`;
   }
@@ -132,7 +145,7 @@ You can click any project on this page to view interactive case studies and medi
   return `Biruk Lemma is a Full Stack Software Engineer proficient in React, Next.js, Node.js, and modern UI engineering. 
 
 Feel free to ask about:
-• His **projects** (NODD Ticket, Excelet Academy, Serdo Store, Placeopia)
+• His **projects** (NODD Ticket, Excelet Academy, Serdo Store, Placeopia, Space Invaders)
 • Core **tech stack** and skills
 • How to **contact** or **hire** him
 • Downloading his **resume**!`;

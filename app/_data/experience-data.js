@@ -36,10 +36,7 @@ export const experienceData = {
       role: 'Full Stack Developer',
       type: '',
       dateRange: 'Nov 2025 – Present',
-      bullets: [
-        'Building end-to-end web and mobile applications for international clients using React, Next.js, Node.js, and React Native.',
-        'Architecting scalable RESTful APIs, database schemas, and responsive user interfaces.',
-      ],
+      bullets: [],
       badges: [],
     },
   ],
@@ -50,11 +47,7 @@ export const experienceData = {
       role: 'Bachelor of Software Engineering',
       type: '',
       dateRange: 'May 2022 – Jun 2026',
-      bullets: [
-        'Pursuing Bachelor of Science in Software Engineering with focus on software architecture, algorithms, and data structures.',
-        'Completed coursework in web and mobile systems, distributed computing, database design, and software testing.',
-        'Collaborated on multiple team software development projects applying agile methodologies.',
-      ],
+      bullets: [],
       badges: [],
     },
     {
@@ -63,10 +56,7 @@ export const experienceData = {
       role: 'High School Diploma',
       type: '',
       dateRange: 'Sep 2019 – Sep 2021',
-      bullets: [
-        'Completed secondary school curriculum with focus on natural sciences, mathematics, and foundational computing.',
-        'Active participant in academic clubs and technology-oriented student activities.',
-      ],
+      bullets: [],
       badges: [],
     },
   ],

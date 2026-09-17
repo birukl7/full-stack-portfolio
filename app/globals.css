@@ -129,21 +129,21 @@
 
   /* Tag / Badge */
   .tag {
-    @apply inline-flex items-center rounded-full border border-border bg-muted/50 px-2.5 py-0.5 text-xs font-medium text-muted-foreground transition-colors;
+    @apply inline-flex items-center rounded-none border border-border bg-muted/50 px-2.5 py-0.5 text-xs font-medium text-muted-foreground transition-colors;
   }
 
   .tag-filled {
-    @apply inline-flex items-center rounded-full bg-foreground px-3 py-1 text-xs font-medium text-background transition-colors hover:bg-foreground/80;
+    @apply inline-flex items-center rounded-none bg-foreground px-3 py-1 text-xs font-medium text-background transition-colors hover:bg-foreground/80;
   }
 
   /* Card */
   .card {
-    @apply overflow-hidden rounded-xl border border-border bg-card;
+    @apply overflow-hidden rounded-none border border-border bg-card;
   }
 
   /* Tab switcher */
   .tab-group {
-    @apply mx-auto mb-8 flex max-w-md overflow-hidden rounded-lg border border-border bg-muted/30;
+    @apply mx-auto mb-8 flex max-w-md overflow-hidden rounded-none border border-border bg-muted/30;
   }
 
   .tab-btn {
@@ -160,7 +160,7 @@
   }
 
   .exp-logo {
-    @apply flex size-10 shrink-0 items-center justify-center rounded-full bg-muted text-sm font-bold text-foreground;
+    @apply flex size-10 shrink-0 items-center justify-center rounded-none border border-border bg-muted text-sm font-bold text-foreground;
   }
 
   .exp-company {
@@ -181,11 +181,11 @@
 
   /* Project card */
   .project-card {
-    @apply card flex flex-col;
+    @apply card flex flex-col rounded-none;
   }
 
   .project-card-img {
-    @apply relative aspect-video w-full overflow-hidden bg-muted;
+    @apply relative aspect-video w-full overflow-hidden rounded-none bg-muted;
   }
 
   .project-card-body {
@@ -231,20 +231,20 @@
 
   /* Buttons */
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background transition-all hover:bg-foreground/85;
+    @apply inline-flex items-center gap-2 rounded-none bg-foreground px-4 py-2 text-sm font-medium text-background transition-all hover:bg-foreground/85;
   }
 
   .btn-outline {
-    @apply inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition-all hover:bg-muted;
+    @apply inline-flex items-center gap-2 rounded-none border border-border px-4 py-2 text-sm font-medium text-foreground transition-all hover:bg-muted;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium text-muted-foreground transition-all hover:bg-muted hover:text-foreground;
+    @apply inline-flex items-center gap-2 rounded-none px-3 py-1.5 text-sm font-medium text-muted-foreground transition-all hover:bg-muted hover:text-foreground;
   }
 
   /* Social icon button */
   .social-icon {
-    @apply flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-muted hover:text-foreground;
+    @apply flex size-9 items-center justify-center rounded-none border border-border bg-muted/30 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground;
   }
 }
 

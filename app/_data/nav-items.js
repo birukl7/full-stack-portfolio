@@ -1,11 +1,11 @@
 export const navItems = [
   {
     href: '/',
-    title: 'home',
+    title: 'Home',
   },
   {
     href: '#projects',
-    title: 'projects',
+    title: 'Projects',
   },
   // {
   //   href: '#blog',
@@ -13,6 +13,6 @@ export const navItems = [
   // },
   {
     href: '#contact',
-    title: 'contact',
+    title: 'Contact',
   },
 ];

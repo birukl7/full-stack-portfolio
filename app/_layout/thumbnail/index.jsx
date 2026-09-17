@@ -4,22 +4,38 @@ import { useCallback, useState } from 'react';
 
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { projectPages, thumbnailOptions } from '@/data';
 
 import { ProjectDetailDialog } from '../project-dialog';
 
-const techStacks = {
+export const techStacks = {
   'nodd-ticket': ['Next.js', 'Supabase', 'Heavy Drag & Drop'],
   'excelet-academy': ['Laravel', 'Laravel Sanctum', 'Laravel API'],
   serdo: ['Laravel', 'E-commerce', 'Inertia.js', 'React.js'],
   placeopia: ['Laravel', 'React Native', 'Figma'],
+  'space-invaders': [
+    'Vanilla JS',
+    'HTML5 Canvas',
+    'Game Physics',
+    'Data Structures',
+  ],
+  'my-habit': [
+    'Next.js',
+    'Telegram Bot API',
+    'Calendar & Streaks',
+    'Gamification',
+  ],
 };
 
-function ProjectCard({ project, onProjectClick }) {
+export function ProjectCard({ project, onProjectClick }) {
   const slug = project.href.replace(/^\//, '');
   const tags = techStacks[slug] || [];
-  const cloudinaryUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'demo'}/image/upload/${project.image}`;
+  const imageUrl =
+    project.image && project.image.startsWith('/')
+      ? project.image
+      : `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME || 'demo'}/image/upload/${project.image}`;
   const sourceUrl = project.source || null;
   const liveUrl = project.link || null;
 
@@ -30,7 +46,7 @@ function ProjectCard({ project, onProjectClick }) {
     >
       <div className='project-card-img'>
         <Image
-          src={cloudinaryUrl}
+          src={imageUrl}
           fill={true}
           sizes='(max-width: 768px) 100vw, 50vw'
           alt={project.title}
@@ -60,7 +76,7 @@ function ProjectCard({ project, onProjectClick }) {
               onClick={e => e.stopPropagation()}
             >
               <ExternalLink size={13} />
-              Visit
+              {slug === 'space-invaders' ? 'Play' : 'Visit'}
             </a>
           )}
           {sourceUrl && (
@@ -83,6 +99,9 @@ function ProjectCard({ project, onProjectClick }) {
 
 export function Thumbnail() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const featuredProjects = thumbnailOptions.filter(
+    project => project.featured !== false,
+  );
 
   const handleProjectClick = useCallback(slug => {
     const project = projectPages[slug];
@@ -100,20 +119,15 @@ export function Thumbnail() {
       <section id='projects' className='section-container py-8'>
         {/* Section header */}
         <div className='section-header'>
-          <h2 className='section-title'>projects</h2>
-          <a
-            href='https://github.com/birukl7'
-            target='_blank'
-            rel='noopener noreferrer'
-            className='section-link'
-          >
+          <h2 className='section-title'>Projects</h2>
+          <Link href='/projects' className='section-link'>
             view more <ArrowRight size={14} />
-          </a>
+          </Link>
         </div>
 
         {/* Project grid */}
         <div className='grid gap-5 sm:grid-cols-2'>
-          {thumbnailOptions.map(project => (
+          {featuredProjects.map(project => (
             <ProjectCard
               key={project.href}
               project={project}

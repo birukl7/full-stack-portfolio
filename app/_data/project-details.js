@@ -44,4 +44,27 @@ export const projectDetails = {
       { type: 'image', source: 'placeopia-mobile_1_yfjshr' },
     ],
   },
+
+  'my-habit': {
+    description: [
+      'My Habit is a simple and intuitive habit tracking application engineered to help users build consistent routines through daily task management and smart reminders. Featuring direct Telegram bot integration ("My Habit Notifier"), users can effortlessly log daily completions with one-tap inline buttons and check their progress without friction.',
+      'The platform features an interactive calendar view, streak tracking to keep momentum burning, character avatar customization, and an XP-driven leveling journey from beginner to grandmaster. It makes handling simple day-to-day tasks rewarding and fun.',
+    ],
+    media: [
+      { type: 'image', source: '/my-habit-1.png' },
+      { type: 'image', source: '/my-habit-2.png' },
+      { type: 'image', source: '/my-habit-3.png' },
+    ],
+  },
+
+  'space-invaders': {
+    description: [
+      'Space Invaders is a retro arcade shooter recreated entirely from scratch in pure Vanilla JavaScript and HTML5 Canvas, without any third-party gaming engines or external dependencies. Developed to cultivate a deep, foundational mastery of JavaScript, the game leverages core data structures, multidimensional arrays, and an optimized requestAnimationFrame game loop.',
+      'The engine implements custom 2D collision detection, alien armada grid movement algorithms, player laser projectiles, dynamic score tracking, sound effects, and smooth keyboard controls. Engineering these mechanics with raw JavaScript provided extensive hands-on experience in coordinate math, memory management, and deterministic state handling.',
+    ],
+    media: [
+      { type: 'image', source: '/space-invaders-1.png' },
+      { type: 'image', source: '/space-invaders-2.png' },
+    ],
+  },
 };
