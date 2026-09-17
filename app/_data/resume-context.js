@@ -52,16 +52,16 @@ export const RESUME_CONTEXT = {
         'Retail e-commerce and inventory stock management platform (https://serdo.et) built with Laravel, Inertia.js, and React.js featuring real-time stock alerts, revenue analytics, and automated tax reporting.',
     },
     {
-      name: 'Placeopia',
-      slug: 'placeopia',
-      summary:
-        'Urban experience and venue discovery platform designed in Figma, featuring a React Native mobile application powered by a scalable Laravel backend API.',
-    },
-    {
       name: 'My Habit',
       slug: 'my-habit',
       summary:
         'A habit tracking web platform (https://my-habit.pro.et) integrated with an interactive Telegram bot, featuring calendar tracking, streak analytics, and an XP-based leveling journey.',
+    },
+    {
+      name: 'Placeopia',
+      slug: 'placeopia',
+      summary:
+        'Urban experience and venue discovery platform designed in Figma, featuring a React Native mobile application powered by a scalable Laravel backend API.',
     },
     {
       name: 'Space Invaders',
@@ -86,10 +86,9 @@ export function getLocalBotResponse(query) {
 1. **NODD Ticket**: An enterprise task management platform replacing ClickUp for a Sydney-based client (Kanban/List/Calendar views, Gmail integration).
 2. **Excelet Academy**: An e-learning & national exam prep app serving 1,000+ Ethiopian students.
 3. **Serdo Store**: Retail inventory & stock management platform with automated revenue analytics.
-4. **Placeopia**: Urban destination discovery app and venue management platform.
-5. **My Habit**: A habit tracking platform with Telegram bot automation, streak calendar tracking, and a level journey (https://my-habit.pro.et).
+4. **My Habit**: A habit tracking platform with Telegram bot automation, streak calendar tracking, and a level journey (https://my-habit.pro.et).
 
-You can click any project on this page to view interactive case studies and media demos!`;
+You can click any project on this page to view interactive case studies and media demos, or click "view more" to explore additional projects like Placeopia and Space Invaders!`;
   }
 
   if (

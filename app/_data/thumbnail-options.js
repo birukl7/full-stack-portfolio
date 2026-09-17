@@ -33,17 +33,6 @@ export const thumbnailOptions = [
     featured: true,
   },
   {
-    href: '/placeopia',
-    title: 'Placeopia',
-    image: 'placeopia_anuadh',
-    description:
-      'Urban experience & venue discovery app designed in Figma, powered by React Native and Laravel.',
-    type: 'Urban experience & venue discovery app designed in Figma, powered by React Native and Laravel.',
-    source: null,
-    link: null,
-    featured: true,
-  },
-  {
     href: '/my-habit',
     title: 'My Habit',
     image: '/my-habit-1.png',
@@ -53,6 +42,17 @@ export const thumbnailOptions = [
     source: null,
     link: 'https://my-habit.pro.et',
     featured: true,
+  },
+  {
+    href: '/placeopia',
+    title: 'Placeopia',
+    image: 'placeopia_anuadh',
+    description:
+      'Urban experience & venue discovery app designed in Figma, powered by React Native and Laravel.',
+    type: 'Urban experience & venue discovery app designed in Figma, powered by React Native and Laravel.',
+    source: null,
+    link: null,
+    featured: false,
   },
   {
     href: '/space-invaders',
